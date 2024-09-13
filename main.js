@@ -6,6 +6,7 @@ dotenv.config();
 
 const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID;
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
+
 const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
 
 const EVAN_PHONE_NUMBER = process.env.EVAN_PHONE_NUMBER;
@@ -16,7 +17,10 @@ const EVAN_LEETCODE = process.env.EVAN_LEETCODE;
 const JOSEPH_LEETCODE = process.env.JOSEPH_LEETCODE;
 const GAVIN_LEETCODE = process.env.GAVIN_LEETCODE;
 
-const client = new twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
+const client = new twilio(
+    'ACdb6751e632ace6842228563313fdacd6',
+    '4e89aa45beac7501df1ad5e36c94dff2'
+);
 
 const gavinLoss = [
     "This is why you and Wendy didn't date. {results} just surpassed you in Leetcode points",
@@ -26,7 +30,7 @@ const gavinLoss = [
     'Like your stomach, your leetcode is trash. {results} just surpassed you in Leetcode points',
 ];
 
-const JosephLoss = [
+const josephLoss = [
     "This is why she's never coming back. {results} just surpassed you in Leetcode points",
     "This is why Scotiabank didn't hire you. {results} just surpassed you in Leetcode points",
     'Remember when you broke a TV in the Pilot House. {results} just surpassed you in Leetcode points',
@@ -89,14 +93,14 @@ async function compareAndNotify() {
     );
     const randomInteger = getRandomInteger();
     if (results === 'Gavin') {
-        const evanMessage = gavinLoss[randomInteger];
+        const evanMessage = evanLoss[randomInteger];
         const josephMessage = josephLoss[randomInteger];
         const gavinMessage = win[0];
         sendSMS(evanMessage, EVAN_PHONE_NUMBER);
         sendSMS(josephMessage, JOSEPH_PHONE_NUMBER);
         sendSMS(gavinMessage, GAVIN_PHONE_NUMBER);
     } else if (results === 'Joseph') {
-        const evanMessage = josephLoss[randomInteger];
+        const evanMessage = evanLoss[randomInteger];
         const josephMessage = win[0];
         const gavinMessage = gavinLoss[randomInteger];
         sendSMS(evanMessage, EVAN_PHONE_NUMBER);
