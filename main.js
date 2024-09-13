@@ -42,7 +42,7 @@ const evanLoss = [
     '{results} just surpassed you in Leetcode points',
 ];
 
-win = [
+const win = [
     'You are currently ranked the highest on LeetCode! Welcome back, king 👑.',
 ];
 
