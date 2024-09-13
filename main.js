@@ -50,7 +50,8 @@ function getRandomInteger() {
     return Math.floor(Math.random() * 5);
 }
 
-async function getLeetCodeData(apiUrl) {
+async function getLeetCodeData(user) {
+    const apiUrl = `https://leetcode-stats-api.herokuapp.com/${user}`;
     try {
         const response = await axios.get(apiUrl);
         const leetInfo = {
