@@ -1,0 +1,42 @@
+name: LeetCode Notifier
+
+on:
+    schedule:
+        # Run the script every 3 hours
+        - cron: '0 */3 * * *'
+
+    # Allows the workflow to be manually triggered from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    notify:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Step 1: Check out the repository
+            - name: Check out the repository
+              uses: actions/checkout@v3
+
+            # Step 2: Set up Node.js
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18' # Specify the version of Node.js to use
+
+            # Step 3: Install dependencies
+            - name: Install dependencies
+              run: npm install
+
+            # Step 4: Run the script
+            - name: Run LeetCode Notifier script
+              env:
+                  TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+                  TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+                  TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
+                  EVAN_PHONE_NUMBER: ${{ secrets.EVAN_PHONE_NUMBER }}
+                  GAVIN_PHONE_NUMBER: ${{ secrets.GAVIN_PHONE_NUMBER }}
+                  JOSEPH_PHONE_NUMBER: ${{ secrets.JOSEPH_PHONE_NUMBER }}
+                  EVAN_LEETCODE: ${{ secrets.EVAN_LEETCODE }}
+                  JOSEPH_LEETCODE: ${{ secrets.JOSEPH_LEETCODE }}
+                  GAVIN_LEETCODE: ${{ secrets.GAVIN_LEETCODE }}
+              run: node main.js
