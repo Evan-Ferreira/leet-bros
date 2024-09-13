@@ -1,7 +1,6 @@
 import axios from 'axios';
 import twilio from 'twilio';
 import dotenv from 'dotenv';
-import Math from 'math';
 
 dotenv.config();
 
