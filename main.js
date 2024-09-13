@@ -18,7 +18,7 @@ const GAVIN_LEETCODE = process.env.GAVIN_LEETCODE;
 
 const client = new twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
-gavinLoss = [
+const gavinLoss = [
     "This is why you and Wendy didn't date. {results} just surpassed you in Leetcode points",
     "You're a disgrace to your family. {results} just surpassed you in Leetcode points",
     'Your fired from inQUbate. {results} just surpassed you in Leetcode points',
@@ -26,7 +26,7 @@ gavinLoss = [
     'Like your stomach, your leetcode is trash. {results} just surpassed you in Leetcode points',
 ];
 
-JosephLoss = [
+const JosephLoss = [
     "This is why she's never coming back. {results} just surpassed you in Leetcode points",
     "This is why Scotiabank didn't hire you. {results} just surpassed you in Leetcode points",
     'Remember when you broke a TV in the Pilot House. {results} just surpassed you in Leetcode points',
@@ -34,7 +34,7 @@ JosephLoss = [
     "You'll never surpass William Wang. {results} just surpassed you in Leetcode points",
 ];
 
-evanLoss = [
+const evanLoss = [
     '{results} just surpassed you in Leetcode points',
     '{results} just surpassed you in Leetcode points',
     '{results} just surpassed you in Leetcode points',
